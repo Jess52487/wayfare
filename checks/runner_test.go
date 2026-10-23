@@ -532,9 +532,9 @@ func TestRunnerForCorridorDefaultsToAMetricSet(t *testing.T) {
 		Base: "USD", Quote: "NGN", Mid: decimal.NewFromInt(1350), Source: "provider",
 	}
 	got := r.DefaultMetrics(Corridor{
-		FloorSize: decimal.RequireFromString("0.1"),
+		FloorSize:          decimal.RequireFromString("0.1"),
 		FloorEffectiveRate: decimal.NewFromInt(1000),
-		Reference: reference,
+		Reference:          reference,
 	})
 	if len(got) == 0 {
 		t.Fatal("a runner with no metrics must fall back to the default set")

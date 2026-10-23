@@ -106,9 +106,9 @@ func TestFloorLossMetricDoesNotInventMissingRungOrReference(t *testing.T) {
 		{
 			name: "missing reference mid",
 			metric: FloorLossMetric{
-				Size: decimal.RequireFromString("0.1"),
+				Size:          decimal.RequireFromString("0.1"),
 				EffectiveRate: decimal.NewFromInt(100),
-				Reference: refrate.Rate{Source: "provider"},
+				Reference:     refrate.Rate{Source: "provider"},
 			},
 		},
 		{
