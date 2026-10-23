@@ -365,6 +365,8 @@ func (s *Server) handleCorridor(w http.ResponseWriter, r *http.Request) {
 			Underlying: underlyingPair(res),
 			Reference:  res.Reference,
 			Baseline:   s.issuerDriftBaseline(ctx, sendAsset.Code, recvAsset.Code),
+			FloorSize:          res.FloorSize,
+			FloorEffectiveRate: res.FloorEffectiveRate,
 		}))
 	}
 
