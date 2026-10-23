@@ -147,12 +147,11 @@ rung.
 
 The floor-loss metric records the rung, reference mid, and provider. A spread on
 the book and a loss on the ladder are still two measurements of the same
-corridor; nothing in the tree computes the share of the loss that is spread and
-the share that is depth, which is what the README's sentence claims. Reachability
-was also the repository's V2 milestone (`docs/why-wayfare.md`,
-`docs/market-structure.md`), and the chains this document reads predate it:
-their records carry no metrics at all, so a recorded-history reader still
-cannot check the attribution here.
+corridor. None of that attributes the floor to spread or depth: the metric
+measures the loss against the reference, not its cause. Reachability was also
+the repository's V2 milestone (`docs/why-wayfare.md`, `docs/market-structure.md`),
+and the chains this document reads predate it: their records carry no metrics
+at all, so a recorded-history reader still cannot check the attribution here.
 
 **2. Price impact is defined against its own baseline, not against the
 reference.** `PriceImpactMetric` defines impact as degradation *from the rate
@@ -163,6 +162,9 @@ zero at its own baseline and cannot distinguish a size-independent floor from
 size-dependent slippage. The separate `floor-loss.reference-mid` metric
 compares the ladder's smallest priced rung against the *reference mid* and
 reuses that rung rather than making another probe.
+The floor measurement has been promoted from inference to an evidence-bearing
+reference-mid figure; its spread/depth attribution remains an inference, rather
+than a result.
 
 **3. The attribution is fixed prose, not a computed result.** When no size is
 viable, `route/ladder.go:528-536` emits:
