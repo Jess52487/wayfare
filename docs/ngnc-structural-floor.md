@@ -141,9 +141,9 @@ and `ForCorridor` runs them beside the checks (`checks/runner.go`), so a live
 `/api/corridor?live=1` response and every recorded run behind it can carry a
 `findings.metrics` block. Four default metrics read the direct order book —
 spread, concentration, observed depth and deviation from the reference mid.
-The new floor-loss metric reuses the smallest priced ladder rung, and reports
-undetermined when its reference is unscorable or the ladder produced no priced
-rung.
+The new floor-loss metric reuses the smallest priced rung from the ladder, and
+reports undetermined when its reference is unscorable or the ladder produced no
+priced rung.
 
 The floor-loss metric records the rung, reference mid, and provider. A spread on
 the book and a loss on the ladder are still two measurements of the same
